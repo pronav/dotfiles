@@ -1,0 +1,6 @@
+[
+  {
+    "keys": ["f10"],
+    "command" : "toggle_menu"
+  }
+]

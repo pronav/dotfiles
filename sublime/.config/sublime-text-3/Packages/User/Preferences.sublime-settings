@@ -1,0 +1,17 @@
+{
+	"color_scheme": "Packages/Boxy Theme/schemes/Boxy Yesterday.tmTheme",
+	"dpi_scale": 1.33,
+	"hide_minimap": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_to_bracket": true,
+	"line_padding_bottom": 2,
+	"line_padding_top": 2,
+	"tab_size": 2,
+	"theme": "Boxy Yesterday.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"update_check": false,
+	"word_wrap": false
+}
