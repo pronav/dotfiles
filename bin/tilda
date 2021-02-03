@@ -1,0 +1,18 @@
+# start hidden tilda if process not there
+# if process is there, store geometry and position in $WIN
+WIN=$(wmctrl -lG | rg -o "(^\w+\s+)((-?\d+\s+){5})(${HOSTNAME}\s+tilda$)" -r '$1$2' | ifne -n i3-msg "exec termite --title=tilda")
+
+# toggle scratchpad
+i3-msg scratchpad show
+
+WIN=$(echo $WIN | rg -o "^(\w+)\s+-1" -r '$1')
+
+# if hidden, then exit
+if [ "$WIN" = "" ]; then
+  exit;
+fi
+
+# else calculate display dimensions
+XYWH=$(xrandr | rg "^`i3-msg -t get_workspaces | jq -r '.[] | select(.focused) | .output'` connected" | rg -o '(\d+)x(\d+)\+(\d+)\+(\d+)' -r '$3,$4,$1,$2')
+
+wmctrl -i -r ${WIN} -e 1,${XYWH}
